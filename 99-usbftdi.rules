@@ -1,0 +1,18 @@
+/*
+*Abhishek Bansal, copied from FTDI website
+ 
+
+*Description : Add this file in /etc/udev/rules.d if Linux not detecting FTDI
+
+*All FTDI devices now supported in Ubuntu 11.10, kernel 3.0.0-19
+
+*VCP drivers are integrated into the kernel.
+
+*/
+
+
+# For FTDI FT232 & FT245 USB devices with Vendor ID = 0x0403, Product ID = 0xabc
+SYSFS{idProduct}==”abcd”, SYSFS{idVendor}==”0403”, RUN+=”/sbin/modprobe –q ftdisio product=0xabcd vendor=0x0403” 
+
+
+#Note that “0xabcd” is a dummy value for the PID; you will enter the PID assigned to you from FTDI.
